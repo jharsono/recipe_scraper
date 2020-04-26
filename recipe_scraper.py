@@ -30,7 +30,7 @@ def bulletize(data, numbered=False):
     '''.format(list_type, formatted_list, list_type)
 
 @app.route('/')
-def hello_world():
+def home():
     return 'POST to /scrape with {url: "recipe_link.html"} in the request body.'
 
 @app.route('/scrape', methods=['POST'])
@@ -48,8 +48,8 @@ def scrape_recipe():
     formatted_instructions = bulletize(instructions, numbered=True)
 
     return '''\
-        <H1>{}</>
-        <p>Yields: {} </p>
+        <H1>{}</H1>
+        <p>Yields: {}</p>
         <p>Total Time: {} minutes</p>
         <H2>Ingredients</H2>
         {}
